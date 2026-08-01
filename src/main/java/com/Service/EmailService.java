@@ -13,6 +13,7 @@ public class EmailService {
 
     public void sendOtp(String toEmail, String otp) {
 
+        System.out.println("API KEY = " + apiKey);
         RestTemplate restTemplate = new RestTemplate();
 
         HttpHeaders headers = new HttpHeaders();
