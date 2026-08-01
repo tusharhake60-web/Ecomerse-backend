@@ -1,8 +1,6 @@
 package com.Service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.SimpleMailMessage;
-import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
 import com.Entity.UserOtp;
@@ -15,7 +13,7 @@ import java.util.Random;
 public class OtpService {
 
     @Autowired
-    private JavaMailSender mailSender;
+    private EmailService emailService;
 
     @Autowired
     private UserOtpRepository repository;
@@ -39,18 +37,11 @@ public class OtpService {
             repository.save(new UserOtp(email, otp));
         }
 
-        SimpleMailMessage message = new SimpleMailMessage();
-        message.setTo(email);
-        message.setSubject("OTP Verification");
-        message.setText("Your OTP is: " + otp);
-
         try {
-            mailSender.send(message);
-
+            emailService.sendOtp(email, otp);
             return "OTP Sent Successfully";
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println(e.getMessage());
             return "Failed to send OTP: " + e.getMessage();
         }
     }
