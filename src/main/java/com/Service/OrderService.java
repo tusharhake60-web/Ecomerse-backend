@@ -39,6 +39,7 @@ public class OrderService {
 		payload.put("Uemail", o.getUemail());
 		payload.put("price", o.getPrice());
 		payload.put("product", o.getPname());
+		payload.put("bemail", o.getBemail());
 
 		RestTemplate restTemplate = new RestTemplate();
 
