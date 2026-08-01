@@ -31,7 +31,7 @@ public class UserService {
 
 			// Webhook call
 			RestTemplate restTemplate = new RestTemplate();
-			String webhookUrl = "https://autoworkflo.app.n8n.cloud/webhook-test/076899c7-5ff0-43ac-ba68-cbee42845b20";
+			String webhookUrl = "https://autoworkflo.app.n8n.cloud/webhook/076899c7-5ff0-43ac-ba68-cbee42845b20";
 			restTemplate.postForObject(webhookUrl, payload, String.class);
 
 			return "User Register Succefully";

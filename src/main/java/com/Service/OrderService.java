@@ -43,7 +43,7 @@ public class OrderService {
 
 		RestTemplate restTemplate = new RestTemplate();
 
-		restTemplate.postForObject("https://autoworkflo.app.n8n.cloud/webhook-test/order", payload, String.class);
+		restTemplate.postForObject("https://autoworkflo.app.n8n.cloud/webhook/order", payload, String.class);
 		return "Order Added Succefully";
 	}
 
