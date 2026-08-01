@@ -45,14 +45,13 @@ public class OtpService {
         message.setText("Your OTP is: " + otp);
 
         try {
-        mailSender.send(message);
+            mailSender.send(message);
 
-        return "OTP Sent Successfully";
-        }
-        catch(Exception e)
-        {
-        	 e.printStackTrace();
-        	    return "Failed to send OTP: " + e.getMessage();
+            return "OTP Sent Successfully";
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println(e.getMessage());
+            return "Failed to send OTP: " + e.getMessage();
         }
     }
 
